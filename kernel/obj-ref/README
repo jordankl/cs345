@@ -1,0 +1,5 @@
+Suported Architectures:
+
+GCC64: Linux 64-bit
+GCCOSX64: Mac OSX 64-bit
+GCCW32: Windows, GCC 32-bit, MinGNU

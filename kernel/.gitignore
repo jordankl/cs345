@@ -1,0 +1,18 @@
+# Ignore the binary os345
+os345
+os345-swp
+
+# Ignore emacs backup files
+*~
+
+# Ignore eclipse project files
+.cproject
+.project
+
+# Ignore the swap generated files
+*-swp.c
+obj-swap
+.DS_Store
+
+#ignore executable files on windows
+*.exe
