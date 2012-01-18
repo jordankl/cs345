@@ -94,7 +94,7 @@ OBJS	=			obj/kernel.o							\
 					obj-ref/$(ARCH)/delta_clock.o			\
 					obj-ref/$(ARCH)/semaphores.o			\
 					obj-ref/$(ARCH)/scheduler.o				\
-					obj-ref/$(ARCH)/queue_list.o			\
+					obj/queue_list.o			\
 					obj-ref/$(ARCH)/jurassic_park.o			\
 					obj-ref/$(ARCH)/virtual_memory.o		\
 					obj-ref/$(ARCH)/fat.o					\

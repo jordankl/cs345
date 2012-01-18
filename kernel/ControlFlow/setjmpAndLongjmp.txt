@@ -1,0 +1,3 @@
+setjmp and longjmp are used to determine what context the kernel is in. To determine it's course of action.
+setjmp is used in switches and then by using longjmp to pass in which case it was to switch two. This allows
+the kernel to keep track of its context or state. 

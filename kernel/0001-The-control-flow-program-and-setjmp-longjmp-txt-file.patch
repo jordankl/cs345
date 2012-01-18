@@ -1,0 +1,321 @@
+From d0386379ce802a87cbc75c5ad6dec596b98044b0 Mon Sep 17 00:00:00 2001
+From: jordankl <jordanlaimana@gmail.com>
+Date: Sun, 15 Jan 2012 02:38:33 -0700
+Subject: [PATCH]  The control flow program and setjmp/longjmp txt file are in
+ the ControlFlow folder in kernel
+
+---
+ ControlFlow/README               |   15 +++++++++
+ ControlFlow/control              |  Bin 0 -> 8687 bytes
+ ControlFlow/control.c            |   63 ++++++++++++++++++++++++++++++++++++++
+ ControlFlow/setjmpAndLongjmp.txt |    3 ++
+ Makefile                         |    6 ++--
+ src/kernel.c                     |    2 -
+ src/queue_list.c                 |   59 +++++++++++++++++++++++++++++------
+ 7 files changed, 133 insertions(+), 15 deletions(-)
+ create mode 100644 ControlFlow/README
+ create mode 100755 ControlFlow/control
+ create mode 100644 ControlFlow/control.c
+ create mode 100644 ControlFlow/setjmpAndLongjmp.txt
+
+diff --git a/ControlFlow/README b/ControlFlow/README
+new file mode 100644
+index 0000000..a04da9e
+--- /dev/null
++++ b/ControlFlow/README
+@@ -0,0 +1,15 @@
++The executable is called:
++	control
++To run type:
++	./control when in the folder ControlFlow
++you can choose between three options to divide the number 10. 
++The first option is to enter a number. 
++	if you enter zero it will jump to the error handler and print out a "divide by zero error". 
++	if you enter another number it will return the result.
++	either one you enter it will then give the same 3 options
++The second option is to enter a character
++	when you enter a character it will return a different error code and print out a "type char error"
++	then return back to the 3 options
++The 3rd option quits the program.then
++	offer the same three options
++If you enter a number other than one of the options it prints out invalid choice and gives you the 3 options again
+\ No newline at end of file
+diff --git a/ControlFlow/control b/ControlFlow/control
+new file mode 100755
+index 0000000000000000000000000000000000000000..6affbe43822724839c0a2b2cc1a16c8e31ae5bab
+GIT binary patch
+literal 8687
+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
+P)^T`TmcLcVkc)o-W&O)s
+
+literal 0
+HcmV?d00001
+
+diff --git a/ControlFlow/control.c b/ControlFlow/control.c
+new file mode 100644
+index 0000000..68770fb
+--- /dev/null
++++ b/ControlFlow/control.c
+@@ -0,0 +1,63 @@
++
++#include <stdlib.h>
++#include <stdio.h>
++#include <setjmp.h>
++
++   jmp_buf jumper;
++   jmp_buf reset;
++
++   int divide(int a, int b)
++   {
++      if (b == 0) // can't divide by 0
++         longjmp(jumper, 3);
++      return a / b;
++   }
++
++   void main(void)
++   {
++
++	   switch (setjmp(jumper)) {
++	   case 3:
++		   printf("Failed with divide by zero error\n");
++		   break;
++	   case 2:
++		   printf("Failed with type char error\n");
++		   break;
++	   default:
++		   break;
++	   }
++
++	   int num = 10;
++	   int option = 0;
++	   int denominator = 0;
++	   char character;
++	   switch (setjmp(reset)){
++	   case -1:
++		   printf("Goodbye\n");
++		   break;
++	   case 2:
++		   printf("You entered an invalid choice! Please try again.");
++		   longjmp(reset,1);
++		   break;
++	   default:
++		   printf("Dividing %d by a number\n",num);
++		   printf("Enter 1 to enter a number\nEnter 2 to enter a character\nEnter 3 to quit\nChoice: ");
++		   scanf("%d",&option);
++		   if(option == 1){
++			   printf("Enter number: ");
++		   	   scanf("%d",&denominator);
++			   num = divide(num,denominator);
++			   printf("The answer is %d\n",num);
++			   longjmp(reset,0);
++		   } else if(option == 2){
++			   printf("Enter character: ");
++		   	   scanf("%c",&character);
++		   	   longjmp(jumper, 2);
++		   } else if(option == 3){
++			   longjmp(reset, -1);
++		   } else {
++			   longjmp(reset,2);
++		   }
++		   break;
++   	   }
++   }
+diff --git a/ControlFlow/setjmpAndLongjmp.txt b/ControlFlow/setjmpAndLongjmp.txt
+new file mode 100644
+index 0000000..93087f4
+--- /dev/null
++++ b/ControlFlow/setjmpAndLongjmp.txt
+@@ -0,0 +1,3 @@
++setjmp and longjmp are used to determine what context the kernel is in. To determine it's course of action.
++setjmp is used in switches and then by using longjmp to pass in which case it was to switch two. This allows
++the kernel to keep track of its context or state. 
+diff --git a/Makefile b/Makefile
+index 139349c..3723b16 100644
+--- a/Makefile
++++ b/Makefile
+@@ -38,8 +38,8 @@ INCLUDE = 	-Iinc
+ ## Specific defines for the build process
+ ## directives
+ #ARCH = GCCW32
+-ARCH = GCCOSX64
+-#ARCH = GCC64
++#ARCH = GCCOSX64
++ARCH = GCC64
+ 
+ DEFINE = -D$(ARCH) -DKDEBUG=FALSE
+ 
+@@ -94,7 +94,7 @@ OBJS	=			obj/kernel.o							\
+ 					obj-ref/$(ARCH)/delta_clock.o			\
+ 					obj-ref/$(ARCH)/semaphores.o			\
+ 					obj-ref/$(ARCH)/scheduler.o				\
+-					obj-ref/$(ARCH)/queue_list.o			\
++					obj/queue_list.o			\
+ 					obj-ref/$(ARCH)/jurassic_park.o			\
+ 					obj-ref/$(ARCH)/virtual_memory.o		\
+ 					obj-ref/$(ARCH)/fat.o					\
+diff --git a/src/kernel.c b/src/kernel.c
+index de08c5f..22b45fb 100644
+--- a/src/kernel.c
++++ b/src/kernel.c
+@@ -149,10 +149,8 @@ int main(int argc, char* argv[])
+ 
+ 	// Output header message
+ 	printf("%s", STARTUP_MSG);
+-
+ 	// Initalize OS
+ 	initOS();
+-
+ 	// Schedule CLI task
+ 	NewTask myShellTask;
+ 	myShellTask.name = "myShell";
+diff --git a/src/queue_list.c b/src/queue_list.c
+index fc00da7..bfb5cf4 100644
+--- a/src/queue_list.c
++++ b/src/queue_list.c
+@@ -12,33 +12,72 @@
+ Node tasks[MAX_TASKS];
+ 
+ Node* getNode(tid_t tid) {
++	Node *node = malloc(sizeof(struct node));
++	node->tid = tid;
++	node->next = NULL;
++	return node;
+ }
+ 
+-void clearNode(Node* node)
+-{
++void clearNode(Node* node) {
++	node->tid = -1;
++	node->next = NULL;
+ 	return;
+ }
+ 
+ QueueList* makeQueue(unsigned short priority) {
+-    QueueList* queue = NULL; 
++    QueueList* queue = malloc(sizeof(struct queueList));
++    queue->priority = priority;
++    queue->curNode = NULL;
++    queue->lastNode = NULL;
++    queue->nextList = NULL;
+     return queue;
+ }
+ 
+ 
+-int removeNode(QueueList* list, tid_t tid)
+-{
++int removeNode(QueueList* list, tid_t tid) {
++	Node* current = list->curNode;
++	Node* prev = NULL;
++	while(current != NULL){
++		if(current->tid == tid){
++			if(prev == NULL){
++				list->curNode = current->next;
++			} else{
++				prev->next = current->next;
++			}
++			clearNode(current);
++			return TRUE;
++		} else {
++			prev = current;
++			current = current->next;
++		}
++	}
+ 	return NO_TASK;
+ }
+ 
+-void enqueue(QueueList* list, tid_t tid)
+-{
++void enqueue(QueueList* list, tid_t tid) {
++	Node* node = getNode(tid);
++	if(list->lastNode == NULL){
++		list->curNode = node;
++	}else {
++		list->lastNode->next = node;
++	}
++	list->lastNode = node;
+     return;
+ }
+ 
+-int dequeue(QueueList* list)
+-{
++int dequeue(QueueList* list){
+     int tid;
+-
++    Node* current = list->curNode;
++    if(current == NULL){
++    	return NO_TASK;
++    } else if(current->tid == list->lastNode->tid){
++    	tid = current->tid;
++    	list->curNode = NULL;
++    	list->lastNode = NULL;
++    } else {
++    	tid = current->tid;
++    	list->curNode = current->next;
++    }
+     return tid;
+ }
+ 
+-- 
+1.7.5.4
+

@@ -149,10 +149,8 @@ int main(int argc, char* argv[])
 
 	// Output header message
 	printf("%s", STARTUP_MSG);
-
 	// Initalize OS
 	initOS();
-
 	// Schedule CLI task
 	NewTask myShellTask;
 	myShellTask.name = "myShell";

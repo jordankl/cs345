@@ -151,3 +151,7 @@ int mystop(int argc, char* argv[]) {
 int testScheduler(int argc, char* argv[]) {
     return 0;
 }
+
+int mytask(int argc, char* argv[]){
+	return 0;
+}

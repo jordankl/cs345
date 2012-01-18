@@ -19,14 +19,15 @@ Command builtin_cmd_list[] = {
 	{	"reset",		"rs",		cmd_reset,				"Reset system"}
 };
 
-int number_commands = 45;
+int number_commands = 46;
 Command command_list[] = {
 
-	// My Tasks - 4
+	// My Tasks - 5
 	{	"myint",		"myint",	myint,					"Sleep <n> seconds then KSIGINT self"},
 	{	"mysplit",		"mysplit",	mysplit,				"Create task and wait for task to terminate"},
 	{	"mystop",		"mystop",	mystop,					"Sleep <n> seconds then KSIGTSTOP self"},
 	{	"myspin",		"myspin",	myspin,					"Sleep for <n> seconds and exit"},
+	{	"mytask",		"mytask",	mytask,					"My new task"},
 
 	// Delta Clock Task - 3
 	{	"testsc",		"tsc",		testScheduler,			"Test scheduler"},

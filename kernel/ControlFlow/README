@@ -1,0 +1,15 @@
+The executable is called:
+	control
+To run type:
+	./control when in the folder ControlFlow
+you can choose between three options to divide the number 10. 
+The first option is to enter a number. 
+	if you enter zero it will jump to the error handler and print out a "divide by zero error". 
+	if you enter another number it will return the result.
+	either one you enter it will then give the same 3 options
+The second option is to enter a character
+	when you enter a character it will return a different error code and print out a "type char error"
+	then return back to the 3 options
+The 3rd option quits the program.then
+	offer the same three options
+If you enter a number other than one of the options it prints out invalid choice and gives you the 3 options again
