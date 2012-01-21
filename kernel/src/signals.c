@@ -346,6 +346,12 @@ tid_t _wait(int taskId, int *stat_loc)
 	return(hasChild ? 0 : -1);
 }
 
+int _getKernelState(int *stat_loc, int *time)
+{
+	TCB* tcb = getTCB();;
+	return tcb->state;
+}
+
 
 //	WIFKSTOPPED
 //

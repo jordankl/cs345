@@ -101,7 +101,8 @@ int (*sys_call_table[MAXSYSCALLS]) () = {	U_gettid,
 											U_waittid,
 											U_listSems,
 											U_listDeltaClock,
-											U_wait};
+											U_wait,
+											U_getKernelState};
 
 // **********************************************************************
 // **********************************************************************

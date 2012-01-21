@@ -368,4 +368,15 @@ tid_t wait_b(int *stat_loc) {
 
 	return wait(stat_loc);
 }
+
+int getKernelState(int stat_loc, int time){
+	trap_struct kernelStateParams;
+	jmp_buf buf;
+	void* local_params[3] = { (void*)buf, (void*)&stat_loc, (void*)&time };
+	kernelStateParams.params = local_params;
+
+	trap(&kernelStateParams, STATECALL);
+
+	return kernelStateParams.return_value.return_int;
+}
 /* End Systems Calls */

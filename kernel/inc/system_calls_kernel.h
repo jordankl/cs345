@@ -21,5 +21,6 @@ int U_insertDeltaClock();
 int U_deleteClockEvent();
 int U_waittid();
 int U_wait();
+int U_getKernelState();
 
 #endif

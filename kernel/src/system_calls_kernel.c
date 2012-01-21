@@ -316,4 +316,20 @@ int U_wait()
 	return 1;
 }
 
+int U_getKernelState()
+{
+	// Unpack Variables
+	int* stat_loc = (int*)system_call_params->params[1];
+	int* time = (int*)system_call_params->params[2];
+	int rv = 0;
+
+	_setTrapParamsContext(system_call_params);
+	// Do system call
+	rv = _getKernelState(stat_loc, time);
+	system_call_params = _getTrapParamsContext();
+	system_call_params->return_value.return_int = rv;
+
+	// Return
+	return 1;
+}
 //@ENABLE_SWAPS

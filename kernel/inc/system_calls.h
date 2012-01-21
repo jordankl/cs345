@@ -7,7 +7,7 @@
 #define SWAP swapTask();
 
 // System Calls
-#define MAXSYSCALLS			20
+#define MAXSYSCALLS			21
 #define GETTIDCALL			1
 #define SWAPTASKCALL		2
 #define SEMSIGNALCALL		3
@@ -28,6 +28,7 @@
 #define LISTSEMSCALL		18
 #define LISTDELTACLOCKCALL	19
 #define WAITCALL        	20
+#define STATECALL        	21
 
 
 int helloWorldTask(int, char**);
@@ -53,5 +54,6 @@ tid_t waittid(int task, int *stat_loc);
 tid_t wait(int *stat_loc);
 
 tid_t wait_b(int *stat_loc);
+int getKernelState(int time, int wait);
 
 #endif
